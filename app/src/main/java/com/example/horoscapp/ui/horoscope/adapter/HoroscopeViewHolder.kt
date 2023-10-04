@@ -1,5 +1,6 @@
 package com.example.horoscapp.ui.horoscope.adapter
 
+import android.util.Log
 import android.view.View
 import android.view.animation.LinearInterpolator
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +20,7 @@ class HoroscopeViewHolder(view: View):RecyclerView.ViewHolder(view) {
         binding.parent.setOnClickListener {
             startRotationAnimation(binding.ivHoroscope, newLambda = {onItemSelected(horoscopeInfo)})
 
-
+            Log.d("Seguimiento","HoroscopeViewHolder binding.parent.setOnClickListener")
         }
 
 
@@ -33,9 +34,9 @@ class HoroscopeViewHolder(view: View):RecyclerView.ViewHolder(view) {
              interpolator=LinearInterpolator()
             rotationBy(360f)
              withEndAction{newLambda()}
-
              start()
          }
+         Log.d("Seguimiento","HoroscopeViewHolder  fun startRotationAnimation")
 
      }
 

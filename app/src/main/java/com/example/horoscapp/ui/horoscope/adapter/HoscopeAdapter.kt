@@ -1,5 +1,6 @@
 package com.example.horoscapp.ui.horoscope.adapter
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -17,7 +18,7 @@ class HoscopeAdapter(private var horoscopeList:List<HoroscopeInfo> = emptyList()
 
     //infla el recyclerview con el layout elegido
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): HoroscopeViewHolder {
-
+        Log.d("Seguimiento","HoroscopeAdapter onCreateViewHolder")
         return HoroscopeViewHolder(
             LayoutInflater.from(parent.context).inflate(R.layout.item_horoscope,parent,false)
         )
@@ -30,6 +31,7 @@ class HoscopeAdapter(private var horoscopeList:List<HoroscopeInfo> = emptyList()
     override fun onBindViewHolder(holder: HoroscopeViewHolder, position: Int) {
         holder.render(horoscopeList[position],onItemSelected)
 
+        Log.d("Seguimiento","HoroscopeAdapter onBindViewHolder")
     }
 
 

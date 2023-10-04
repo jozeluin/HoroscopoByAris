@@ -1,6 +1,7 @@
 package com.example.horoscapp.ui.horoscope
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,6 +13,19 @@ import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.horoscapp.databinding.FragmentHoroscopeBinding
+import com.example.horoscapp.domain.model.HoroscopeInfo.Aquarius
+import com.example.horoscapp.domain.model.HoroscopeInfo.Aries
+import com.example.horoscapp.domain.model.HoroscopeInfo.Cancer
+import com.example.horoscapp.domain.model.HoroscopeInfo.Capricorn
+import com.example.horoscapp.domain.model.HoroscopeInfo.Gemini
+import com.example.horoscapp.domain.model.HoroscopeInfo.Leo
+import com.example.horoscapp.domain.model.HoroscopeInfo.Libra
+import com.example.horoscapp.domain.model.HoroscopeInfo.Pisces
+import com.example.horoscapp.domain.model.HoroscopeInfo.Sagittarius
+import com.example.horoscapp.domain.model.HoroscopeInfo.Scorpio
+import com.example.horoscapp.domain.model.HoroscopeInfo.Taurus
+import com.example.horoscapp.domain.model.HoroscopeInfo.Virgo
+import com.example.horoscapp.domain.model.HoroscopeModel
 import com.example.horoscapp.ui.horoscope.adapter.HoscopeAdapter
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
@@ -52,11 +66,26 @@ class HoroscopeFragment : Fragment() {
 
     private fun initList() {
         horoscopeAdapter = HoscopeAdapter(onItemSelected = {
+            val type=when(it){
+                Aquarius ->HoroscopeModel.Aquarius
+                Aries -> HoroscopeModel.Aries
+                Cancer -> HoroscopeModel.Cancer
+                Capricorn -> HoroscopeModel.Capricornio
+                Gemini -> HoroscopeModel.Gemini
+                Leo -> HoroscopeModel.Leo
+                Libra -> HoroscopeModel.Libra
+                Pisces -> HoroscopeModel.Piscis
+                Sagittarius -> HoroscopeModel.Sagittarius
+                Scorpio ->HoroscopeModel.Scorpio
+                Taurus -> HoroscopeModel.Taurus
+                Virgo ->HoroscopeModel.Virgo
+            }
 
             findNavController().navigate(
-                HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity()
+                HoroscopeFragmentDirections.actionHoroscopeFragmentToHoroscopeDetailActivity(type)
             )
         })
+        Log.d("Seguimiento","HoroscopeFragment fun initList")
 
         binding.rvHoroscope.apply {
             layoutManager = GridLayoutManager(context,2)

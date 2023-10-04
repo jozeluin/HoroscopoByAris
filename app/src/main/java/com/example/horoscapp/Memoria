@@ -46,3 +46,11 @@
     Crear ActivivityDetail
     Navegacion, Dependencias safeArgs,navegacion a AcivityDetail
     3:02:23
+
+9ª
+    Para saber que la pantalla Detail sepa que hemos pulsado.
+    Creacion de nuevo modelo de datos enumerado, que pasaremos al
+    llamar el Adapter en HoroscopeFragment.
+    Creacion del argumento que se pasa de HoroscopeFragment a el
+    ActivityDetail y su recuperacion
+    3:12:05
