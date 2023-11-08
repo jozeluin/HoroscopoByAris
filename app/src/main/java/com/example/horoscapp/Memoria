@@ -5,6 +5,11 @@
     Imports con el gradle de kotlin, configuracion
     Construccion inicial , binding, FragmenContainerView, menu
 
+    54:11 creacion del menu inferir de desplazamiento
+
+    1:00:00
+    Creacion menu toolbar inferior
+
 2º 26/09/23
 
     Menu, el nav controller, funcionamiento del menu
@@ -57,6 +62,13 @@
 
 10º
     Creacion del layout del Detail. Creacion de stylos, y stylos con parent
-    .Creacion de vector y colocacion en pantalla detail
-
+    .Creacion de vector y colocacion en pantalla detail. Colocamo Progressbar
     3:36:53
+
+
+3:37 Trabajar con estados
+3:46 Preparar estados y empezar a trabajar con ellos. Colocacion permiso internet en manifest
+3:48 Consumo de Api.Colocacion librerias Retrofit
+4:00 Usando el editor online JsonEditorOnline para ver lo  que nos devuelve el Api
+4:06 Division de capas
+
