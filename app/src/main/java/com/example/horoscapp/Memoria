@@ -71,4 +71,6 @@
 3:48 Consumo de Api.Colocacion librerias Retrofit
 4:00 Usando el editor online JsonEditorOnline para ver lo  que nos devuelve el Api
 4:06 Division de capas
-
+4:11:46 DaggerHilt, en Interface . Creacion de modulos, no puedo inyectar librerias externas
+        Creacion de Modulos
+4:18 Hemos podido pasar la interface con Dagger
