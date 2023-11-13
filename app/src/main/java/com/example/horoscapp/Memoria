@@ -74,3 +74,6 @@
 4:11:46 DaggerHilt, en Interface . Creacion de modulos, no puedo inyectar librerias externas
         Creacion de Modulos
 4:18 Hemos podido pasar la interface con Dagger
+4:26 Cambio de modelo de datos en las diferentes capas.PredictionModel
+4:34 Injectando Repository
+4:41 En HoroscopeDetailViewModel, en las courutinas

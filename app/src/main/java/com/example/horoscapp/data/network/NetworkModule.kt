@@ -1,5 +1,7 @@
 package com.example.horoscapp.data.network
 
+import com.example.horoscapp.data.RepositoryImpl
+import com.example.horoscapp.domain.Repository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -30,6 +32,10 @@ object NetworkModule {
     fun provideHoroscopeApiServices(retrofit: Retrofit):HoroscopeApiService{
         return retrofit.create(HoroscopeApiService::class.java)
 
+    }
+    @Provides
+    fun provideRepository(apiService: HoroscopeApiService):Repository{
+        return RepositoryImpl(apiService)
     }
 
 }
