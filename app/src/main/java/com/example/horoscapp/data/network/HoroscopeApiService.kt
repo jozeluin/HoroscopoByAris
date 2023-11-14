@@ -10,7 +10,7 @@ import kotlin.math.sign
  */
 interface HoroscopeApiService {
 
-    @GET("/{sign}) ")
+    @GET("/{sign}")
     suspend fun getHoroscope(@Path("sign") sign: String) :PredictionResponse
 
 

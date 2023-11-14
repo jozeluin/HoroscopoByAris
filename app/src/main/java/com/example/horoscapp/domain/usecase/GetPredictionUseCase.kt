@@ -1,6 +1,8 @@
 package com.example.horoscapp.domain.usecase
 
+import android.util.Log
 import com.example.horoscapp.domain.Repository
+import com.example.horoscapp.domain.model.PredictionModel
 import javax.inject.Inject
 
 class GetPredictionUseCase @Inject constructor(private val repository: Repository) {

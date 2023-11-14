@@ -34,7 +34,7 @@ object NetworkModule {
 
     }
     @Provides
-    fun provideRepository(apiService: HoroscopeApiService):Repository{
+    fun provideRepository(apiService: HoroscopeApiService): Repository {
         return RepositoryImpl(apiService)
     }
 

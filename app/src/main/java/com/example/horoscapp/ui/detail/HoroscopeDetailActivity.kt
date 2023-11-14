@@ -1,6 +1,7 @@
 package com.example.horoscapp.ui.detail
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -17,7 +18,7 @@ import kotlinx.coroutines.launch
 class HoroscopeDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHoroscopeDetailBinding
-    private val hoscopeDetailViewModel: HoroscopeDetailViewModel by viewModels()
+    private val horoscopeDetailViewModel: HoroscopeDetailViewModel by viewModels()
 
     private val args: HoroscopeDetailActivityArgs by navArgs()
 
@@ -26,6 +27,9 @@ class HoroscopeDetailActivity : AppCompatActivity() {
         binding = ActivityHoroscopeDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initUI()
+        horoscopeDetailViewModel.getHoroscope(args.type.name)
+        Log.i("JoseLuis","HoroscopeDetailActivity "+ args.type.name)
+
     }
 
     private fun initUI() {
@@ -35,11 +39,12 @@ class HoroscopeDetailActivity : AppCompatActivity() {
     private fun initUIState() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                hoscopeDetailViewModel.state.collect {
-                    when(it){
-                        is HoroscopeDetatilState.Error -> loadingState()
-                        HoroscopeDetatilState.Loading -> errorState()
-                        is HoroscopeDetatilState.Sucess ->successState()
+                horoscopeDetailViewModel.state.collect {
+                    when (it) {
+                        is HoroscopeDetatilState.Error -> errorState()
+                        HoroscopeDetatilState.Loading -> loadingState()
+                        is HoroscopeDetatilState.Sucess -> successState(it)
+
                     }
 
                 }
@@ -49,12 +54,16 @@ class HoroscopeDetailActivity : AppCompatActivity() {
     }
 
     private fun loadingState() {
-        binding.pb.isVisible=true
+        binding.pb.isVisible = true
     }
-    private fun errorState(){
 
+    private fun errorState() {
+        binding.pb.isVisible = false
     }
-    private fun successState(){
 
+    private fun successState(state:HoroscopeDetatilState.Sucess) {
+        binding.pb.isVisible = false
+        binding.tvTitle.text = state.sign
+        binding.tvBody.text =state.prediction
     }
 }
