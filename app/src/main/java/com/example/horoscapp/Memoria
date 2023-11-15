@@ -56,7 +56,7 @@
     Para saber que la pantalla Detail sepa que hemos pulsado.
     Creacion de nuevo modelo de datos enumerado, que pasaremos al
     llamar el Adapter en HoroscopeFragment.
-    Creacion del argumento que se pasa de HoroscopeFragment a el
+    Creacion del argumento, safeArgs, que se pasa de HoroscopeFragment a el
     ActivityDetail y su recuperacion
     3:12:05
 
@@ -66,8 +66,9 @@
     3:36:53
 
 
-3:37 Trabajar con estados
+3:37 Trabajar con estados.Empezamos con la logica
 3:46 Preparar estados y empezar a trabajar con ellos. Colocacion permiso internet en manifest
+
 3:48 Consumo de Api.Colocacion librerias Retrofit
 4:00 Usando el editor online JsonEditorOnline para ver lo  que nos devuelve el Api
 4:06 Division de capas
@@ -76,4 +77,5 @@
 4:18 Hemos podido pasar la interface con Dagger
 4:26 Cambio de modelo de datos en las diferentes capas.PredictionModel
 4:34 Injectando Repository
-4:41 En HoroscopeDetailViewModel, en las courutinas
+4:41 En HoroscopeDetailViewModel, en las courutinas.
+        En pc y Asus, funciona y sale el Detail
