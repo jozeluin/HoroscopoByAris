@@ -82,4 +82,8 @@
     Colcar en la pantalla detail una imagen
 
 4:56 Mejora de retrofit con los interceptor
-5:04 Creacion de interceptor desde 0
+5:04 Creacion de nuestro propip interceptor desde 0
+5:13 Remodelando modulos, cambiando provideRetrofit.
+    Creacion de url de prueba con datos falsos para desarrolladores. Los buildTypes
+5:21 Configuracion en los buildtypes de nombres personalizados para cada tipo de buildtype. Debug Release
+5:25 Comenzamos con el fragment luckFragment
