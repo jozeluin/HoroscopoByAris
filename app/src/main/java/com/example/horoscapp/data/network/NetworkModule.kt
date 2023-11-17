@@ -6,6 +6,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
@@ -17,11 +19,12 @@ object NetworkModule {
 
     @Provides
     @Singleton
-    fun provideRetrofit(): Retrofit {
+    fun provideRetrofit(okHttpClient: OkHttpClient): Retrofit {
 
-       return Retrofit
+        return Retrofit
             .Builder()
             .baseUrl("https://newastro.vercel.app/")
+            .client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -29,10 +32,22 @@ object NetworkModule {
     }
 
     @Provides
-    fun provideHoroscopeApiServices(retrofit: Retrofit):HoroscopeApiService{
+    @Singleton
+    fun provideOkHtppClient(): OkHttpClient {
+        val interceptor=HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+
+        return OkHttpClient
+            .Builder()
+            .addInterceptor(interceptor)
+            .build()
+    }
+
+    @Provides
+    fun provideHoroscopeApiServices(retrofit: Retrofit): HoroscopeApiService {
         return retrofit.create(HoroscopeApiService::class.java)
 
     }
+
     @Provides
     fun provideRepository(apiService: HoroscopeApiService): Repository {
         return RepositoryImpl(apiService)

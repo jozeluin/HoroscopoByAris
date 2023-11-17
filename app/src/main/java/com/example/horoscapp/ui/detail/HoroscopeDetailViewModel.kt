@@ -20,25 +20,26 @@ class HoroscopeDetailViewModel @Inject constructor(private val getPredictionUseC
 
     private var _state = MutableStateFlow<HoroscopeDetatilState>(HoroscopeDetatilState.Loading)
     val state: StateFlow<HoroscopeDetatilState> = _state
+    lateinit var horoscope:HoroscopeModel
 
-    lateinit var horoscope: HoroscopeModel
-    fun getHoroscope(sign: String) {
-
+    fun getHoroscope(sign: HoroscopeModel) {
+        horoscope=sign
         viewModelScope.launch {
             _state.value = HoroscopeDetatilState.Loading
-            //hilo principal
-            val result = withContext(Dispatchers.IO) { getPredictionUseCase(sign) }//hilo secundario
-            //hilo principal
-            if (result != null) {
-                _state.value = HoroscopeDetatilState.Sucess(result.horoscope, result.sign)
-            } else {
-                _state.value = HoroscopeDetatilState.Error("Ha ocurrido un error")
-                Log.i("HoroscopeDetailViewModel","Ha ocurrido un error")
-            }
 
+            var result = withContext(Dispatchers.IO) { getPredictionUseCase(sign.name) }//hilo secundario
+            Log.i("JoseLuis","HDetailView valor result"+ result?.horoscope)
+            if (result != null) {
+                _state.value = HoroscopeDetatilState.Sucess(result.horoscope, result.sign,horoscope)
+                Log.i("JoseLuis","HDetailView result=!null "+ result.sign)
+            } else {
+                _state.value = HoroscopeDetatilState.Error("Error")
+                Log.i("JoseLuis","HoroscopeDetatilState Error")
+            }
         }
 
     }
 
-
 }
+
+
