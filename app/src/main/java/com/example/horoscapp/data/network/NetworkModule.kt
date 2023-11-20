@@ -30,18 +30,17 @@ object NetworkModule {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
-
     }
 
     @Provides
     @Singleton
     fun provideOkHtppClient(authInterceptor: AuthInterceptor): OkHttpClient {
-        val interceptor=HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
+        val interceptor = HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY)
 
         return OkHttpClient
             .Builder()
-            .addInterceptor(interceptor)
             .addInterceptor(authInterceptor)
+            .addInterceptor(interceptor)
             .build()
     }
 

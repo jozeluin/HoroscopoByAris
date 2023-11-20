@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools">
     <uses-permission android:name="android.permission.INTERNET"/>
 
+<!--    android:label="HoroscApp"-->
+
     <application
         android:name=".HoroscApp"
         android:allowBackup="true"

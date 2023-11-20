@@ -8,18 +8,24 @@ import javax.inject.Inject
  * Interceptor autorizacion
  * Agregamos a la cadena de pedido al servidior nueva informacion
  */
-class AuthInterceptor @Inject constructor(private val tokenManager: TokenManager):Interceptor {
+class AuthInterceptor @Inject constructor(private val tokenManager: TokenManager) : Interceptor {
+
     override fun intercept(chain: Interceptor.Chain): Response {
-        val request=chain.request()
+
+
+        val request = chain.request()
             .newBuilder()
             .header("Autorizacion", tokenManager.getToken())
             .build()
         return chain.proceed(request)
+    }
+}
 
+class TokenManager @Inject constructor() {
+    fun getToken(): String {
+        val string: String
+        string = "Suscribete"
+        return string
     }
 
-    class TokenManager @Inject constructor(){
-        fun getToken():String="Suscribete, el pesado del Señor Aris"
-
-    }
 }

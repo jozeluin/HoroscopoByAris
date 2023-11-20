@@ -21,23 +21,40 @@ android {
     }
 
     buildTypes {
-        getByName("release") {
+       release {
             isMinifyEnabled = false
-            isDebuggable=false
+            isDebuggable=true
+            proguardFiles(
+                getDefaultProguardFile("proguard-android-optimize.txt"),
+                "proguard-rules.pro"
+            )
+          //  signingConfig = signingConfigs.getByName("debug")
+
+            resValue("string","joseLuisname","Release-HoroscoApp")
+              buildConfigField("String","BASE_URL","\"https://newastro.vercel.app/\"")
+            signingConfig = signingConfigs.getByName("debug")
+
+
+        }
+
+        debug{
+           // applicationIdSuffix= ".debug"
+            isMinifyEnabled = false
+           isDebuggable=true
+
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
 
-            resValue("string","joseLuisname","HoroscoApp")
+
+            resValue("string","joseLuisname","DEBUG-HoroscoApp")
             buildConfigField("String","BASE_URL","\"https://newastro.vercel.app/\"")
-        }
-        getByName("debug"){
-            isDebuggable=true
-            resValue("string","joseLuisname","[DEBUG] HoroscoApp")
-            buildConfigField("String","BASE_URL","\"https://newastro-debug.vercel.app/\"")
+
 
         }
+
+
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8

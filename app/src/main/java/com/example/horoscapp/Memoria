@@ -87,3 +87,18 @@
     Creacion de url de prueba con datos falsos para desarrolladores. Los buildTypes
 5:21 Configuracion en los buildtypes de nombres personalizados para cada tipo de buildtype. Debug Release
 5:25 Comenzamos con el fragment luckFragment
+5:37 Acabamos animacion ruleta
+5:43 Creacion de animacion en xml
+5:57 Fallo animacion. y fallo en provideOkHtppClient miralo al colocarlo no va conexion a internet
+
+Seguimos con el fallo, en el cambio de los buildTypes. Al cambiar a debug no funciona conexion datos
+el android:label, cambia el titulo del icono en el movil.
+
+Solucionado problemas con conexion y con el interceptor. El fallo mas importanre ha sido al escrivir en
+el  .client(okHttpClient) en el NetworkModule que ponia la o en mayuscula.
+
+Y en los Buildtypes en las diferentes configuraciones no ponia la direccion web bien
+
+6:00 Reparamos animacion. Ahora empezamos a preparar la imagen final y el compartir
+6:16 Hasta aqui hemos creado las diferentes animaciones que hacen falta en el fragmente LuckFragment
+     . Aparti de aqui necesitamos que aparezca la prediccion

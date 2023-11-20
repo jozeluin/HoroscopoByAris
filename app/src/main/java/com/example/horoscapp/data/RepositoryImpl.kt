@@ -10,7 +10,9 @@ class RepositoryImpl @Inject constructor(private val apiService: HoroscopeApiSer
 
     override suspend fun getPrediction(sign: String): PredictionModel? {
         runCatching { apiService.getHoroscope(sign) }
-            .onSuccess { return it.toDomain() }
+            .onSuccess {
+                Log.i("JoseLuis","conxion conseguida")
+                return it.toDomain() }
             .onFailure { Log.i("JoseLuis", "Ha ocurrido un error ${it.message}") }
         return null
     }
