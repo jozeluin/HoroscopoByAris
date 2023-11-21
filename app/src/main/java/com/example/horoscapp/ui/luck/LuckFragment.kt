@@ -1,6 +1,7 @@
 package com.example.horoscapp.ui.luck
 
 import android.animation.ObjectAnimator
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -49,12 +50,20 @@ class LuckFragment : Fragment() {
     }
 
     /**
-     * Compartir
+     * Compartir, por wasap email etc
      *
      * @param predicion
      */
     private fun shareResult(predicion:String) {
-        TODO("Not yet implemented")
+        val sendIntent: Intent =Intent().apply {
+            action=Intent.ACTION_SEND
+            putExtra(Intent.EXTRA_TEXT,predicion)
+            type="text/plain"
+        }
+
+        val shareIntent=Intent.createChooser(sendIntent,null)
+        startActivity(shareIntent)
+
     }
 
     private fun initListeners() {

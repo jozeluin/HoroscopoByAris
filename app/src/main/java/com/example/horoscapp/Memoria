@@ -105,3 +105,6 @@ Y en los Buildtypes en las diferentes configuraciones no ponia la direccion web 
 6:23 Estamos creando el modelo de datos en LuckyMode
 6:33 Hasta aqui hemos conseguido que en Luck salga la carta y la prediccio, ahora vamos a acabar la
      Funcionalidad de compartir
+6:43 Hemos terminado la pantalla luck. Tambien al final nos ha explicado como hacer un swipe, bueno
+        no lo avexplicado porque era muy dificil. swipe es arrastrar, ha cambiado el listener de hacer
+        girar la ruleta. Ahora parece que la arrastra
