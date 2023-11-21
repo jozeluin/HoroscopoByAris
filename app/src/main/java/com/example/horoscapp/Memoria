@@ -108,4 +108,5 @@ Y en los Buildtypes en las diferentes configuraciones no ponia la direccion web 
 6:43 Hemos terminado la pantalla luck. Tambien al final nos ha explicado como hacer un swipe, bueno
         no lo avexplicado porque era muy dificil. swipe es arrastrar, ha cambiado el listener de hacer
         girar la ruleta. Ahora parece que la arrastra
-6:44 Comenzamod s
+6:44 Comenzamos lo de la palma de la mano, PalmistryFragment
+6:56 Implementaciones necesarias + Permisos camara en PalmistryFragment
