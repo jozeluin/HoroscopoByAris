@@ -102,3 +102,6 @@ Y en los Buildtypes en las diferentes configuraciones no ponia la direccion web 
 6:00 Reparamos animacion. Ahora empezamos a preparar la imagen final y el compartir
 6:16 Hasta aqui hemos creado las diferentes animaciones que hacen falta en el fragmente LuckFragment
      . Aparti de aqui necesitamos que aparezca la prediccion
+6:23 Estamos creando el modelo de datos en LuckyMode
+6:33 Hasta aqui hemos conseguido que en Luck salga la carta y la prediccio, ahora vamos a acabar la
+     Funcionalidad de compartir
