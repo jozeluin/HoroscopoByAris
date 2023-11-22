@@ -1,11 +1,16 @@
 package com.example.horoscapp.ui.palmistry
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.camera.core.CameraSelector
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
+import androidx.core.content.ContextCompat
 import androidx.core.content.PermissionChecker
 import androidx.fragment.app.Fragment
 import com.example.horoscapp.databinding.FragmentPalmistryBinding
@@ -25,7 +30,7 @@ class PalmistryFragment : Fragment() {
         ActivityResultContracts.RequestPermission()
     ){isGranted->
         if(isGranted){
-            //startCamera
+            starCamera()
         }else{
             Toast.makeText(requireContext(),"Acepta los permisos para poder disfrutar de " +
                     "una experiencia magica",
@@ -38,13 +43,37 @@ class PalmistryFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if(checkCameraPermission()){
-            //tiene permisos aceptados
+           starCamera()
 
         }else{
             requestPermissionLauncher.launch(CAMERA_PERMISION)
 
         }
 
+    }
+
+    private fun starCamera() {
+        val cameraProviderFuture = ProcessCameraProvider.getInstance(requireContext())
+        cameraProviderFuture.addListener({
+            val cameraProvider=cameraProviderFuture.get()
+
+            val preview=Preview.Builder()
+                .build()
+                .also{
+                    it.setSurfaceProvider(binding.viewFinder.surfaceProvider)
+                }
+
+            val cameraSelector= CameraSelector.DEFAULT_BACK_CAMERA
+
+            try{
+                cameraProvider.unbindAll()
+
+                cameraProvider.bindToLifecycle(this,cameraSelector,preview)
+            }catch (e:Exception){
+                Log.e("JoseLuisCamara","Algo peto ${e.message}")
+            }
+
+        }, ContextCompat.getMainExecutor(requireContext()))
     }
 
     fun checkCameraPermission():Boolean{
