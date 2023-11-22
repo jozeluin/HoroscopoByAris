@@ -110,4 +110,6 @@ Y en los Buildtypes en las diferentes configuraciones no ponia la direccion web 
         girar la ruleta. Ahora parece que la arrastra
 6:44 Comenzamos lo de la palma de la mano, PalmistryFragment
 6:56 Implementaciones necesarias + Permisos camara en PalmistryFragment
-7:07 Hemos configurado que se pueda llamar la camara, y funciona. Aunque en el pc sale solo una imagen x defecto
+7:07 Hemos configurado que se pueda llamar la camara, y funciona. Aunque en el pc sale solo una imagen x defecto.
+7:12 Hemos terminado palmistry
+
