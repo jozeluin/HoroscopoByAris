@@ -113,4 +113,7 @@ Y en los Buildtypes en las diferentes configuraciones no ponia la direccion web 
 7:07 Hemos configurado que se pueda llamar la camara, y funciona. Aunque en el pc sale solo una imagen x defecto.
 7:12 Hemos terminado palmistry. Empezamos el testing
 7:50 Mokear, el provider en el HoroscopeviewModel
+7:58 Terminamos Testins unitarios, ahora haremos un test de ui
+8:12 Construccion de nuestro customRunner para crear prubas de ui que contiene DaggerHilt
+Fin
 
